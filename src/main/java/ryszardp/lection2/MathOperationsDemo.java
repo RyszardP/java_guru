@@ -10,8 +10,12 @@ public class MathOperationsDemo {
 
 
     public static void main(String[] args) {
+
+
         puncturedWheelCount = 0;
-        carWheelCount = carWheelCount - puncturedWheelCount;
+        Subtraction subtraction = new Subtraction(carWheelCount, puncturedWheelCount);
+        carWheelCount = subtraction.calculate();
+
         if (puncturedWheelCount == 1) {
             System.out.println("today punctured " + puncturedWheelCount + " wheel in my car, left " + carWheelCount);
         } else if (puncturedWheelCount > 1) {
@@ -22,11 +26,13 @@ public class MathOperationsDemo {
         }
 
         System.out.println();
+
         double piecesOfPizza = 8;
         double numberOfHungry = 3;
         System.out.println("pieces of pizza " + piecesOfPizza);
         System.out.println("number of person " + numberOfHungry);
-        double piecesPerPerson = piecesOfPizza / numberOfHungry;
+        Division division = new Division(piecesOfPizza,numberOfHungry);
+       double piecesPerPerson = division.calculate();
         String piecesPerPersonRounded = String.format("%.3f", piecesPerPerson);
         if (piecesOfPizza % numberOfHungry == 0) {
             System.out.println("equally! everyone got " + piecesPerPerson + "pieces");
@@ -34,20 +40,24 @@ public class MathOperationsDemo {
             System.out.println("not equally " + piecesPerPersonRounded);
         }
 
-        double accountBalance = 10;
-        double monthMarchSalary = 250;
+        System.out.println();
+
+        int accountBalance = 10;
+        int monthMarchSalary = 250;
         System.out.println("account Balance: " + accountBalance);
         System.out.println("march salary: " + monthMarchSalary);
-        accountBalance = accountBalance + monthMarchSalary;
+        Addition addition = new Addition(accountBalance,monthMarchSalary);
+        accountBalance = addition.calculate();
+
         System.out.println("account Balance after march salary: " + accountBalance);
 
-
-        int secondsInMinutes = 60;
-        int minutesInHour = 60;
+        System.out.println();
+        System.out.println("Multiplication ");
         int hourInDay = 24;
         int daysInMarch = 30;
-        int secondsInMarch = secondsInMinutes * minutesInHour * hourInDay * daysInMarch;
-        System.out.println("seconds in march: " + secondsInMarch);
+        Multiplication multiplication = new Multiplication(hourInDay,daysInMarch);
+        int hoursInMarch = multiplication.calculate();
+        System.out.println("hours in march: " + hoursInMarch);
 
     }
 }
